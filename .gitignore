@@ -1,4 +1,5 @@
 FRONT/node_modules
+FRONT/.angular
 BACK/node_modules
 ./.Admin
 
