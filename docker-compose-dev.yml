@@ -2,24 +2,6 @@ version: '3.1'
 
 services:
 
-
-  technews-web-dev:
-    container_name: technews-web-dev
-    build:
-      context: ./FRONT
-      dockerfile: dev.Dockerfile
-    command: npm run start-docker
-    volumes:
-      - ./FRONT:/app
-      - /app/node_modules
-    ports:
-      - 4200:4200
-    depends_on:
-      - technews-node-dev
-    env_file:
-      - ./.env
-
-
   technews-node-dev:
     container_name: technews-node-dev
     build:

@@ -1,2 +1,5 @@
 FRONT/node_modules
 BACK/node_modules
+./.Admin
+
+./node_modules
