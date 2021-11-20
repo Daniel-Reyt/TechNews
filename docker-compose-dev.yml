@@ -1,0 +1,56 @@
+version: '3.1'
+
+services:
+
+
+  technews-web-dev:
+    container_name: technews-web-dev
+    build:
+      context: ./FRONT
+      dockerfile: dev.Dockerfile
+    command: npm run start-docker
+    volumes:
+      - ./FRONT:/app
+      - /app/node_modules
+    ports:
+      - 4200:4200
+    depends_on:
+      - technews-node-dev
+    env_file:
+      - ./.env
+
+
+  technews-node-dev:
+    container_name: technews-node-dev
+    build:
+      context: ./BACK
+      dockerfile: dev.Dockerfile
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      - mariadb
+    env_file:
+      - ./.env
+
+  mariadb:
+    container_name: technews-bdd-dev
+    build:
+      context: BDD
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ./BDD/data:/var/lib/mysql:z
+    env_file:
+      - ./.env
+    expose:
+      - 3306
+
+  adminer:
+    container_name: technews-adminer-dev
+    image: adminer
+    depends_on:
+      - mariadb
+    ports:
+      - ${PORT_ADMINER}:8080
