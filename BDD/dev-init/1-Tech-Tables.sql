@@ -1,6 +1,9 @@
 DROP DATABASE IF EXISTS tech;
 CREATE DATABASE IF NOT EXISTS tech;
 USE tech;
+CREATE USER IF NOT EXISTS 'root'@'%' IDENTIFIED BY 'root';
+GRANT ALL PRIVILEGES ON tech . * TO 'root'@'%';
+FLUSH PRIVILEGES; 
 
 -- -----------------------------------------------------
 -- Table user
@@ -11,7 +14,9 @@ CREATE TABLE users (
 	password VARCHAR(255) NOT NULL,
     role INT NOT NULL,
     PRIMARY KEY (id_user)
-);
+)
+Engine = INNODB;
+
 
 -- -----------------------------------------------------
 -- Table news
@@ -26,7 +31,9 @@ CREATE TABLE news (
 		FOREIGN KEY (id_user)
 		REFERENCES users(id_user)
 		ON DELETE NO ACTION
-);
+)
+Engine = INNODB;
+
 
 -- -----------------------------------------------------
 -- Table comments
@@ -46,7 +53,9 @@ CREATE TABLE comments (
 		FOREIGN KEY (id_news)
 		REFERENCES news(id_news)
 		ON DELETE NO ACTION
-);
+)
+Engine = INNODB;
+
 
 -- -----------------------------------------------------
 -- Table marques
@@ -56,7 +65,9 @@ CREATE TABLE marques (
     nom VARCHAR(255) NOT NULL,
     date_creation Date NOT NULL,
     PRIMARY KEY (id_marque)
-);
+)
+Engine = INNODB;
+
 
 -- -----------------------------------------------------
 -- Table types_produit
@@ -65,7 +76,9 @@ CREATE TABLE types_produit (
     id_type INT NOT NULL AUTO_INCREMENT,
     nom VARCHAR(255) NOT NULL,
     PRIMARY KEY (id_type)
-);
+)
+Engine = INNODB;
+
 
 -- -----------------------------------------------------
 -- Table produits
@@ -86,4 +99,19 @@ CREATE TABLE produits (
 		FOREIGN KEY (id_type)
 		REFERENCES types_produit(id_type)
 		ON DELETE NO ACTION
-);
+)
+Engine = INNODB;
+
+-- -----------------------------------------------------
+-- Table chat
+-- -----------------------------------------------------
+CREATE TABLE chat (
+    id_user INT NOT NULL AUTO_INCREMENT,
+    message VARCHAR(255) NOT NULL,
+    date_message Date NOT NULL,
+        CONSTRAINT fk_chat_user
+		FOREIGN KEY (id_user)
+		REFERENCES users(id_user)
+		ON DELETE NO ACTION
+)
+Engine = INNODB;

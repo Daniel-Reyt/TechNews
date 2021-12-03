@@ -1,0 +1,55 @@
+<nav style="background-color: lightgray;" class="navbar navbar-expand-lg navbar-light">
+    <h4 class="navbar-brand">Navbar</h4>
+    <div class="col-lg-1"></div>
+    <div class="navbar-collapse row">
+        <ul class="navbar-nav col-lg-10">
+            <li class="nav-item">
+                <a [ngClass]="class_Home" routerLink="/home" (click)="redirectHome()">Home</a>
+            </li>
+            <li class="nav-item">
+                <a [ngClass]="class_News" routerLink="/" (click)="redirectNews()">News</a>
+            </li>
+            <li class="nav-item">
+                <a [ngClass]="class_Chat" routerLink="/chat" (click)="redirectChat()">Chat</a>
+            </li>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-6 row" [hidden]="!is_admin && !is_modo">
+                <div class="col-lg-4" [hidden]="!is_admin">
+                    <mat-form-field style="heigth: 30px; width: 100px; margin-top: -10%; padding-bottom: -10%;">
+                        <mat-select [(value)]="selected">
+                            <mat-option selected disabled value="Admin">
+                                Admin
+                            </mat-option>
+                            <mat-option routerLink="/gestion-users" value="Gestion Admin">
+                                Gestion Admin
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-4" [hidden]="!is_modo">
+                    <mat-form-field style="heigth: 30px; width: 100px; margin-top: -10%; padding-bottom: -10%;">
+                        <mat-select placeholder="modo nav">
+                            <mat-option selected disabled>
+                                modo
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="col-lg-1"></div>
+            <li>
+                <form>
+                    <div class="row">
+                        <input type="text" class="col-lg-8" placeholder="Search" aria-label="Search">
+                        <button style="padding: 3px 4px;" class="btn btn-outline-success col-lg-4">Search</button>
+                    </div>
+                </form>
+            </li>
+        </ul>
+        <div class="col-lg-2">
+            <div class="row">
+                <button style="padding: 3px 4px;" class="btn btn-outline-danger col-lg-4" (click)="LogOut()">Logout</button>
+            </div>
+        </div>
+    </div>
+</nav>

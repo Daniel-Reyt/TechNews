@@ -1,9 +1,15 @@
-FROM node:8-alpine
+FROM node:14-alpine
 
-COPY package.json .
-COPY package-lock.json .
-RUN npm install 
-COPY . .
+RUN npm -v
+RUN node -v
 
-EXPOSE 8008
-CMD [ "npm", "run", "dev" ]
+RUN npm install -g nodemon
+
+WORKDIR /app
+
+COPY package*.json /app/
+ENV NPM_CONFIG_LOGLEVEL verbose
+
+RUN npm install
+
+COPY . /app/

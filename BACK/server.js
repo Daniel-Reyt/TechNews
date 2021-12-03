@@ -1,9 +1,12 @@
 const http = require('http');
 const express = require('express');
 const bodyParser = require('body-parser');
-// const appRouter = require('./routes/appRoute.js');
-
+var cors = require('cors');
 const app = express();
+
+app.use(cors({
+    origin: 'http://localhost:4200'
+}))
 
 app.use(bodyParser.json());
 app.use((req, res, next) => {
@@ -13,19 +16,11 @@ app.use((req, res, next) => {
     next();
 });
 
-// app.use('/api', appRouter);
+require('./routers/index.router')(app);
 
 const server = http.createServer(app);
 
 const port = '8080'
 
-server.listen(port)
-
-app.use((req, res, next) => {
-    console.log('requête reçue');
-    res.send('requête reçue');
-    res.status(200);
-    res.end();
-})
-
-console.log('serveur opérationnel au port : ' + port)
+server.listen(port);
+console.log("serveur ok au port : " + port)

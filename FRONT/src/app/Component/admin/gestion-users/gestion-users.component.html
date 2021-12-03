@@ -1,0 +1,89 @@
+<div class="shadow-lg" style="padding-top: 5px;">
+    <mat-toolbar style="background-color: lightgray;">Gestion des Users</mat-toolbar>
+    <mat-tab-group mat-align-tabs="start">
+        <mat-tab label="Liste des users">
+            <table class="table" style="height: 700px; max-height: 700px; min-height: 700px;">
+                <thead>
+                    <tr class="bg-dark-blue">
+                        <th>Username</th>
+                        <th>Mail</th>
+                        <th>Role</th>
+                        <th>modifier</th>
+                        <th>supprimer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users">
+                        <th class="col-lg-1">{{user.username}}</th>
+                        <th class="col-lg-1">{{user.mail_user}}</th>
+                        <th class="col-lg-1">{{user.role}}</th>
+                        <th class="col-lg-1"><button class="btn btn-outline-warning">Modifier</button></th>
+                        <th class="col-lg-1"><button class="btn btn-outline-danger">supprimer</button></th>
+                    </tr>
+                </tbody>
+            </table>
+        </mat-tab>
+        <mat-tab label="Liste des News">
+            <table class="table" style="height: 700px; max-height: 700px; min-height: 700px;">
+                <thead>
+                    <tr class="bg-dark-blue">
+                        <th>Auteur</th>
+                        <th>Message</th>
+                        <th>Date</th>
+                        <th>modifier</th>
+                        <th>supprimer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </mat-tab>
+        <mat-tab label="Liste des Marques">
+            <table class="table" style="height: 700px; max-height: 700px; min-height: 700px;">
+                <thead>
+                    <tr class="bg-dark-blue">
+                        <th>Nom</th>
+                        <th>Date de création</th>
+                        <th>modifier</th>
+                        <th>supprimer</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </mat-tab>
+        <mat-tab label="Liste des Produits">
+            <table class="table" style="height: 700px; max-height: 700px; min-height: 700px;">
+                <thead>
+                    <tr class="bg-dark-blue">
+                        <th>Nom</th>
+                        <th>Description</th>
+                        <th>Prix (€)</th>
+                        <th>Type</th>
+                        <th>Marque</th>
+                        <th>Modifier</th>
+                        <th>supprimer</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </mat-tab>
+        <mat-tab label="Liste des Types de produits">
+            <table class="table" style="height: 700px; max-height: 700px; min-height: 700px;">
+                <thead>
+                    <tr class="bg-dark-blue">
+                        <th>Nom</th>
+                        <th>Modifier</th>
+                        <th>supprimer</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </mat-tab>
+    </mat-tab-group>
+</div>
