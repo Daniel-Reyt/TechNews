@@ -7,6 +7,7 @@ async function getAllMessages() {
         console.log(e)
     }
 }
+
 async function addMessage(id_user, message, date) {
     try {
         return await chatDB.addMessage(id_user, message, date);
@@ -14,6 +15,7 @@ async function addMessage(id_user, message, date) {
         console.log(e)
     }
 }
+
 module.exports = {
     getAllMessages,
 

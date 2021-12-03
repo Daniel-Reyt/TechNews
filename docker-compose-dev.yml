@@ -1,8 +1,6 @@
 version: '3.1'
 
 services:
-      
-
   web:
     container_name: technews-web-dev
     build:
@@ -17,6 +15,7 @@ services:
       - node
     expose:
       - 4200
+
   node:
     container_name: technews-node-dev
     build:
