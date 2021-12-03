@@ -18,6 +18,7 @@ import { MatSelectModule } from "node_modules/@angular/material/select";
 import { MatTabsModule } from "node_modules/@angular/material/tabs";
 import { MatToolbarModule } from "node_modules/@angular/material/toolbar";
 import { MatIconModule } from "node_modules/@angular/material/icon";
+import { ListNewsComponent } from './Component/list-news/list-news.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MatIconModule } from "node_modules/@angular/material/icon";
     GestionUsersComponent,
     HomeComponent,
     NavbarComponent,
-    ChatComponent
+    ChatComponent,
+    ListNewsComponent
   ],
   imports: [
     BrowserModule,

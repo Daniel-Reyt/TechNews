@@ -25,7 +25,7 @@ CREATE TABLE news (
     id_news INT NOT NULL AUTO_INCREMENT,
     id_user INT NOT NULL,
     message VARCHAR(255) NOT NULL,
-	date Date NOT NULL,
+	date DateTime NOT NULL,
     PRIMARY KEY (id_news),
 	CONSTRAINT fk_user_news
 		FOREIGN KEY (id_user)
@@ -43,7 +43,7 @@ CREATE TABLE comments (
     id_user INT NOT NULL,
     id_news INT NOT NULL,
     message VARCHAR(255) NOT NULL,
-	date Date NOT NULL,
+	date DateTime NOT NULL,
     PRIMARY KEY (id_comment),
 	CONSTRAINT fk_user_comment
 		FOREIGN KEY (id_user)
@@ -108,8 +108,8 @@ Engine = INNODB;
 CREATE TABLE chat (
     id_user INT NOT NULL AUTO_INCREMENT,
     message VARCHAR(255) NOT NULL,
-    date_message Date NOT NULL,
-        CONSTRAINT fk_chat_user
+    date_message DateTime NOT NULL,
+    CONSTRAINT fk_chat_user
 		FOREIGN KEY (id_user)
 		REFERENCES users(id_user)
 		ON DELETE NO ACTION
