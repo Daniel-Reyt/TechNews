@@ -1,9 +1,7 @@
 DROP DATABASE IF EXISTS tech;
 CREATE DATABASE IF NOT EXISTS tech;
 USE tech;
-CREATE USER IF NOT EXISTS 'root'@'%' IDENTIFIED BY 'root';
-GRANT ALL PRIVILEGES ON tech . * TO 'root'@'%';
-FLUSH PRIVILEGES; 
+
 
 -- -----------------------------------------------------
 -- Table user

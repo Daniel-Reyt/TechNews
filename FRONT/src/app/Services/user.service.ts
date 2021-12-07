@@ -12,4 +12,7 @@ export class UserService {
   getUsers() {
     return this.http.get(`${url}users/`).pipe();
   }
+  ban(id_user: any) {
+    return this.http.post(`${url}users/ban`, {id_user: id_user}).pipe();
+  }
 }

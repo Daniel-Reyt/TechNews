@@ -19,6 +19,7 @@ import { MatTabsModule } from "node_modules/@angular/material/tabs";
 import { MatToolbarModule } from "node_modules/@angular/material/toolbar";
 import { MatIconModule } from "node_modules/@angular/material/icon";
 import { ListNewsComponent } from './Component/list-news/list-news.component';
+import { ViewCommentComponent } from './Component/view-comment/view-comment.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ListNewsComponent } from './Component/list-news/list-news.component';
     HomeComponent,
     NavbarComponent,
     ChatComponent,
-    ListNewsComponent
+    ListNewsComponent,
+    ViewCommentComponent
   ],
   imports: [
     BrowserModule,
