@@ -1,6 +1,7 @@
 let newsDB = require('../db/news.db');
 
 // GET
+
 async function getAllNews() {
     try {
         return await newsDB.getAllNews();
@@ -9,6 +10,26 @@ async function getAllNews() {
     }
 }
 
+async function getAllCommentOfNews(id_news) {
+    try {
+        return await newsDB.getAllCommentOfNews(id_news);
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+//POST
+
+async function addComment(id_user, comment, id_news) {
+    try {
+        return await newsDB.addComment(id_user, comment, id_news);
+    } catch (e) {
+        console.log(e);
+    }
+}
 module.exports = {
-    getAllNews
+    getAllNews,
+    getAllCommentOfNews,
+    
+    addComment,
 }

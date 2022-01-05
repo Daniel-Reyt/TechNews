@@ -6,6 +6,7 @@ import { HomeComponent } from './Component/home/home.component';
 import { GestionUsersComponent } from './Component/admin/gestion-users/gestion-users.component';
 import { ChatComponent } from './Component/chat/chat.component';
 import { ListNewsComponent } from './Component/list-news/list-news.component';
+import { ViewCommentComponent } from './Component/view-comment/view-comment.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'gestion-users', component: GestionUsersComponent},
   {path: 'chat', component: ChatComponent},
   {path: 'news', component: ListNewsComponent},
+  {path: 'comments/:id_news', component: ViewCommentComponent}
 ];
 
 @NgModule({

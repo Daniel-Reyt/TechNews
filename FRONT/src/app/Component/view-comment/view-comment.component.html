@@ -1,0 +1,21 @@
+<div class="row card-header">
+    commentaier de la news : {{news.message}}, du : {{news.date | date: 'dd MMMM yyyy'}}
+</div>
+<div class="row">
+    <div class="card col-lg-6 text-center" *ngFor="let comment of comments">
+        <div class="card-header row">
+            commentaire de : {{comment.username}}
+        </div>
+        <div class="card-body">
+            {{comment.message}}
+        </div>
+        <div class="card-footer row">
+            {{comment.date | date: 'dd MMMM yyyy'}}
+            <br>
+            <div class="row">
+                <button class="btn btn-outline-danger col-lg-6" [hidden]="role === '0'" (click)="deleteComment(comment.id_comment)">supprimer</button>
+                <button class="btn btn-outline-danger col-lg-6" [hidden]="role === '0' || role === '1'" (click)="banUser(comment.id_user)">bannir</button>
+            </div>
+        </div>
+    </div>
+</div>

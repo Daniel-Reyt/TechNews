@@ -12,4 +12,12 @@ export class NewsService {
   getAllNews() {
     return this.http.get(`${url}news/`).pipe();
   }
+
+  postComment(news: any) {
+    return this.http.post(`${url}news/comment`, news).pipe();
+  }
+
+  getAllCommentByNews(id_news: any) {
+    return this.http.post(`${url}news/getComments/`, {id_news: id_news}).pipe();
+  }
 }
