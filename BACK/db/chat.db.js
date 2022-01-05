@@ -3,7 +3,7 @@ var conn = mysql.createConnection({
     host: 'localhost',
     port: 3308,
     user: 'root',
-    password: 'root',
+    password: '',
     database: 'tech'
 });
 // GET
@@ -28,7 +28,7 @@ async function getAllMessages() {
 async function addMessage(id_user, message, date) {
     {
         return new Promise((resolve, reject) => {
-            conn.query("INSERT INTO chat (id_user, message, date_message) VALUES (?, ?, ?)", [id_user, message, date],
+            conn.query("INSERT INTO chat (id_user, message) VALUES (?, ?)", [id_user, message, date],
                 (err, results) => {
                     if (err) {
                         reject(err);

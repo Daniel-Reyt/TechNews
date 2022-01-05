@@ -24,6 +24,16 @@ async function addUser(req, res, next) {
     }
 }
 
+async function banUser(req, res, next) {
+    try {
+        let id_user = req.body.id_user
+
+        let banData = await userService.banUser(id_user);
+        res.json(banData);
+    } catch (e) {
+        console.log(e)
+    }
+}
 // PUT
 async function updateUser(req, res, next) {
     try {
@@ -55,6 +65,7 @@ module.exports = {
     getAllUsers,
 
     addUser,
+    banUser,
 
     updateUser,
 

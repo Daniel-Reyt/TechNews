@@ -18,6 +18,14 @@ async function addUser(username, password, role) {
     }
 }
 
+async function banUser(id_user) {
+    try {
+        return await userDB.banUser(id_user);
+    } catch (e) {
+        console.log(e)
+    }
+}
+
 // PUT
 async function updateUser(id_user, username, password, role) {
     try {
@@ -40,6 +48,7 @@ module.exports = {
     getAllUsers,
     
     addUser,
+    banUser,
 
     updateUser,
 

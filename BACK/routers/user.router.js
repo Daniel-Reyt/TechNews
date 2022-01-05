@@ -7,6 +7,7 @@ router.get('/', userController.getAllUsers);
 
 // POST
 router.post('/', userController.addUser);
+router.post('/ban', userController.banUser);
 
 // PUT
 router.put('/', userController.updateUser);

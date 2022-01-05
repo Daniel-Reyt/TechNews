@@ -7,7 +7,7 @@
                 <a [ngClass]="class_Home" routerLink="/home" (click)="redirectHome()">Home</a>
             </li>
             <li class="nav-item">
-                <a [ngClass]="class_News" routerLink="/" (click)="redirectNews()">News</a>
+                <a [ngClass]="class_News" routerLink="/news" (click)="redirectNews()">News</a>
             </li>
             <li class="nav-item">
                 <a [ngClass]="class_Chat" routerLink="/chat" (click)="redirectChat()">Chat</a>
@@ -22,15 +22,6 @@
                             </mat-option>
                             <mat-option routerLink="/gestion-users" value="Gestion Admin">
                                 Gestion Admin
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div>
-                <div class="col-lg-4" [hidden]="!is_modo">
-                    <mat-form-field style="heigth: 30px; width: 100px; margin-top: -10%; padding-bottom: -10%;">
-                        <mat-select placeholder="modo nav">
-                            <mat-option selected disabled>
-                                modo
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
