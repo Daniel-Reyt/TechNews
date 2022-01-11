@@ -8,7 +8,7 @@ router.get('/', newsController.getAllNews);
 router.post('/getComments/', newsController.getAllCommentOfNews);
 
 // POST
-
+router.post('/', newsController.addNews);
 router.post('/comment', newsController.addComment);
 
 module.exports = router;

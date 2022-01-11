@@ -15,12 +15,24 @@ async function getAllCommentOfNews(req, res, next) {
     try {
         let comments = await newsService.getAllCommentOfNews(req.body.id_news);
         res.json(comments)
-    } catch(e) {
+    } catch (e) {
         console.log(e);
     }
 }
 
 //POST
+
+async function addNews(req, res, next) {
+    try {
+        const id_user = req.body.id_user;
+        const comment = req.body.message;
+
+        let newNews = await newsService.addNews(id_user, message);
+        res.json(newNews);
+    } catch (e) {
+        console.log(e)
+    }
+}
 
 async function addComment(req, res, next) {
     try {
@@ -37,6 +49,6 @@ async function addComment(req, res, next) {
 module.exports = {
     getAllNews,
     getAllCommentOfNews,
-
+    addNews,
     addComment,
 }
