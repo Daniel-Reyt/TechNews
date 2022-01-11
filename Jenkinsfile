@@ -8,8 +8,6 @@ pipeline {
             steps {
                 sh """
                     cd FRONT 
-                    nvm install 16.10
-                    nvm use 16.10
                     npm i
                     npm run build 
                 """
