@@ -2,39 +2,39 @@
     <mat-toolbar style="background-color: lightgray;">Gestion des Users</mat-toolbar>
     <mat-tab-group mat-align-tabs="start">
         <mat-tab label="Liste des users">
-            <table class="table" style="height: 700px; max-height: 700px; min-height: 700px;">
+            <table class="table">
                 <thead>
                     <tr class="bg-dark-blue">
-                        <th>Username</th>
-                        <th>Mail</th>
-                        <th>Role</th>
-                        <th>modifier</th>
-                        <th>supprimer</th>
+                        <td>Username</td>
+                        <td>Mail</td>
+                        <td>Role</td>
+                        <td>modifier</td>
+                        <td>supprimer</td>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let user of users">
-                        <th class="col-lg-1">{{user.username}}</th>
-                        <th class="col-lg-1">{{user.mail_user}}</th>
-                        <th class="col-lg-1">{{user.role}}</th>
-                        <th class="col-lg-1"><button class="btn btn-outline-warning">Modifier</button></th>
-                        <th class="col-lg-1"><button class="btn btn-outline-danger">supprimer</button></th>
+                    <tr *ngFor="let user of users" class="table-rows">
+                        <td>{{user.username}}</td>
+                        <td>{{user.mail_user}}</td>
+                        <td>{{user.role}}</td>
+                        <td><button class="btn btn-outline-warning">Modifier</button></td>
+                        <td><button class="btn btn-outline-danger">supprimer</button></td>
                     </tr>
                 </tbody>
             </table>
         </mat-tab>
         <mat-tab label="Liste des News">
-            <table class="table" style="height: 700px; max-height: 700px; min-height: 700px;">
+            <table class="table">
                 <thead>
                     <tr class="bg-dark-blue">
-                        <th>Auteur</th>
-                        <th>Message</th>
-                        <th>Date</th>
-                        <th>modifier</th>
-                        <th>supprimer</th>
-                        <th>
+                        <td>Auteur</td>
+                        <td>Message</td>
+                        <td>Date</td>
+                        <td>modifier</td>
+                        <td>supprimer</td>
+                        <td>
                             <mat-icon (click)="OpenAddNews()">+</mat-icon>
-                        </th>
+                        </td>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,74 +42,74 @@
             </table>
         </mat-tab>
         <mat-tab label="Liste des Marques">
-            <table class="table" style="height: 700px; max-height: 700px; min-height: 700px;">
+            <table class="table">
                 <thead>
                     <tr class="bg-dark-blue">
-                        <th>Nom</th>
-                        <th>Date de création</th>
-                        <th>modifier</th>
-                        <th>supprimer</th>
-                        <th>
+                        <td>Nom</td>
+                        <td>Date de création</td>
+                        <td>modifier</td>
+                        <td>supprimer</td>
+                        <td>
                             <mat-icon (click)="OpenAddMarque()">+</mat-icon>
-                        </th>
+                        </td>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let marque of marques">
-                        <th>{{marque.nom}}</th>
-                        <th>{{marque.date_creation | date: 'dd MM YYYY'}}</th>
-                        <th><button class="btn btn-outline-warning">Modifier</button></th>
-                        <th><button class="btn btn-outline-danger">supprimer</button></th>
+                        <td>{{marque.nom}}</td>
+                        <td>{{marque.date_creation | date: 'dd MM YYYY'}}</td>
+                        <td><button class="btn btn-outline-warning">Modifier</button></td>
+                        <td><button class="btn btn-outline-danger">supprimer</button></td>
                     </tr>
                 </tbody>
             </table>
         </mat-tab>
         <mat-tab label="Liste des Produits">
-            <table class="table" style="height: 700px; max-height: 700px; min-height: 700px;">
+            <table class="table">
                 <thead>
                     <tr class="bg-dark-blue">
-                        <th>Nom</th>
-                        <th>Description</th>
-                        <th>Prix (€)</th>
-                        <th>Type</th>
-                        <th>Marque</th>
-                        <th>Modifier</th>
-                        <th>supprimer</th>
-                        <th>
+                        <td>Nom</td>
+                        <td>Description</td>
+                        <td>Prix (€)</td>
+                        <td>Type</td>
+                        <td>Marque</td>
+                        <td>Modifier</td>
+                        <td>supprimer</td>
+                        <td>
                             <mat-icon (click)="OpenAddProduit()">+</mat-icon>
-                        </th>
+                        </td>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let produit of produits">
-                        <th>{{produit.nom}}</th>
-                        <th>{{produit.description}}</th>
-                        <th>{{produit.prix}}</th>
-                        <th>{{produit.type_nom}}</th>
-                        <th>{{produit.marque_nom}}</th>
-                        <th><button class="btn btn-outline-warning">Modifier</button></th>
-                        <th><button class="btn btn-outline-danger">supprimer</button></th>
+                        <td>{{produit.nom}}</td>
+                        <td>{{produit.description}}</td>
+                        <td>{{produit.prix}}</td>
+                        <td>{{produit.type_nom}}</td>
+                        <td>{{produit.marque_nom}}</td>
+                        <td><button class="btn btn-outline-warning">Modifier</button></td>
+                        <td><button class="btn btn-outline-danger">supprimer</button></td>
                     </tr>
                 </tbody>
             </table>
         </mat-tab>
         <mat-tab label="Liste des Types de produits">
-            <table class="table" style="height: 700px; max-height: 700px; min-height: 700px;">
+            <table class="table">
                 <thead>
                     <tr class="bg-dark-blue">
-                        <th>Nom</th>
-                        <th>Modifier</th>
-                        <th>supprimer</th>
-                        <th>
+                        <td>Nom</td>
+                        <td>Modifier</td>
+                        <td>supprimer</td>
+                        <td>
                             <mat-icon (click)="OpenAddTypeProduit()">+</mat-icon>
-                        </th>
+                        </td>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let type of type_produits">
-                        <th>{{type.nom}}</th>
-                        <th><button class="btn btn-outline-warning">Modifier</button></th>
-                        <th><button class="btn btn-outline-danger">supprimer</button></th>
+                        <td>{{type.nom}}</td>
+                        <td><button class="btn btn-outline-warning">Modifier</button></td>
+                        <td><button class="btn btn-outline-danger">supprimer</button></td>
                     </tr>
                 </tbody>
             </table>
