@@ -8,7 +8,7 @@ pipeline {
             steps {
                 sh """
                     cd FRONT 
-                    npm install @angular/cli -g
+                    npm install @angular/cli
                     npm i
                     npm run build 
                 """
