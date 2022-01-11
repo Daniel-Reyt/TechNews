@@ -1,15 +1,17 @@
-FROM node as builder
+FROM node:14.15
 
-RUN mkdir -p /app
-RUN chmod -R 777 /app
+RUN npm i -g @angular/cli
+  # Bundle APP files
 
 WORKDIR /app
 
+# add `/app/node_modules/.bin` to $PATH
 ENV PATH /app/node_modules/.bin:$PATH
 
-COPY . .
+COPY package*.json /app/
 
-RUN npm install --save
+ENV NPM_CONFIG_LOGLEVEL warn
 
-EXPOSE 4200
-CMD ["npm", "run", "start"]
+RUN npm install
+
+COPY . /app

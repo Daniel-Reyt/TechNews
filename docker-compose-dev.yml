@@ -1,38 +1,30 @@
 version: '3.1'
 
 services:
+  web:
+    container_name: technews-web-dev
+    build:
+      context: ./FRONT
+      dockerfile: dev.Dockerfile
+    command: npm run dev
+    volumes:
+      - ./FRONT:/app
+    ports:
+      - 4200:4200
+    depends_on:
+      - node
+    expose:
+      - 4200
 
-  technews-node-dev:
+  node:
     container_name: technews-node-dev
     build:
       context: ./BACK
       dockerfile: dev.Dockerfile
+    command: npm run dev
+    volumes:
+      - ./BACK:/app
     ports:
       - 8080:8080
-    volumes:
-      - .:/app
-      - /app/node_modules
-    depends_on:
-      - mariadb
-    env_file:
-      - ./.env
-
-  mariadb:
-    container_name: technews-bdd-dev
-    build:
-      context: BDD
-      dockerfile: dev.Dockerfile
-    volumes:
-      - ./BDD/data:/var/lib/mysql:z
-    env_file:
-      - ./.env
     expose:
-      - 3306
-
-  adminer:
-    container_name: technews-adminer-dev
-    image: adminer
-    depends_on:
-      - mariadb
-    ports:
-      - ${PORT_ADMINER}:8080
+      - 8080

@@ -2,6 +2,7 @@ DROP DATABASE IF EXISTS tech;
 CREATE DATABASE IF NOT EXISTS tech;
 USE tech;
 
+
 -- -----------------------------------------------------
 -- Table user
 -- -----------------------------------------------------
@@ -11,7 +12,9 @@ CREATE TABLE users (
 	password VARCHAR(255) NOT NULL,
     role INT NOT NULL,
     PRIMARY KEY (id_user)
-);
+)
+Engine = INNODB;
+
 
 -- -----------------------------------------------------
 -- Table news
@@ -20,13 +23,15 @@ CREATE TABLE news (
     id_news INT NOT NULL AUTO_INCREMENT,
     id_user INT NOT NULL,
     message VARCHAR(255) NOT NULL,
-	date Date NOT NULL,
+	date DateTime NOT NULL,
     PRIMARY KEY (id_news),
 	CONSTRAINT fk_user_news
 		FOREIGN KEY (id_user)
 		REFERENCES users(id_user)
 		ON DELETE NO ACTION
-);
+)
+Engine = INNODB;
+
 
 -- -----------------------------------------------------
 -- Table comments
@@ -36,7 +41,7 @@ CREATE TABLE comments (
     id_user INT NOT NULL,
     id_news INT NOT NULL,
     message VARCHAR(255) NOT NULL,
-	date Date NOT NULL,
+	date DateTime NOT NULL,
     PRIMARY KEY (id_comment),
 	CONSTRAINT fk_user_comment
 		FOREIGN KEY (id_user)
@@ -46,7 +51,9 @@ CREATE TABLE comments (
 		FOREIGN KEY (id_news)
 		REFERENCES news(id_news)
 		ON DELETE NO ACTION
-);
+)
+Engine = INNODB;
+
 
 -- -----------------------------------------------------
 -- Table marques
@@ -56,7 +63,9 @@ CREATE TABLE marques (
     nom VARCHAR(255) NOT NULL,
     date_creation Date NOT NULL,
     PRIMARY KEY (id_marque)
-);
+)
+Engine = INNODB;
+
 
 -- -----------------------------------------------------
 -- Table types_produit
@@ -65,7 +74,9 @@ CREATE TABLE types_produit (
     id_type INT NOT NULL AUTO_INCREMENT,
     nom VARCHAR(255) NOT NULL,
     PRIMARY KEY (id_type)
-);
+)
+Engine = INNODB;
+
 
 -- -----------------------------------------------------
 -- Table produits
@@ -86,4 +97,19 @@ CREATE TABLE produits (
 		FOREIGN KEY (id_type)
 		REFERENCES types_produit(id_type)
 		ON DELETE NO ACTION
-);
+)
+Engine = INNODB;
+
+-- -----------------------------------------------------
+-- Table chat
+-- -----------------------------------------------------
+CREATE TABLE chat (
+    id_user INT NOT NULL AUTO_INCREMENT,
+    message VARCHAR(255) NOT NULL,
+    date_message DateTime NOT NULL,
+    CONSTRAINT fk_chat_user
+		FOREIGN KEY (id_user)
+		REFERENCES users(id_user)
+		ON DELETE NO ACTION
+)
+Engine = INNODB;
