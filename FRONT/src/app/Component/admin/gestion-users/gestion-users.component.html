@@ -32,6 +32,9 @@
                         <th>Date</th>
                         <th>modifier</th>
                         <th>supprimer</th>
+                        <th>
+                            <mat-icon (click)="OpenAddNews()">+</mat-icon>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,10 +49,18 @@
                         <th>Date de création</th>
                         <th>modifier</th>
                         <th>supprimer</th>
+                        <th>
+                            <mat-icon (click)="OpenAddMarque()">+</mat-icon>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
-
+                    <tr *ngFor="let marque of marques">
+                        <th>{{marque.nom}}</th>
+                        <th>{{marque.date_creation | date: 'dd MM YYYY'}}</th>
+                        <th><button class="btn btn-outline-warning">Modifier</button></th>
+                        <th><button class="btn btn-outline-danger">supprimer</button></th>
+                    </tr>
                 </tbody>
             </table>
         </mat-tab>
@@ -64,10 +75,21 @@
                         <th>Marque</th>
                         <th>Modifier</th>
                         <th>supprimer</th>
+                        <th>
+                            <mat-icon (click)="OpenAddProduit()">+</mat-icon>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
-
+                    <tr *ngFor="let produit of produits">
+                        <th>{{produit.nom}}</th>
+                        <th>{{produit.description}}</th>
+                        <th>{{produit.prix}}</th>
+                        <th>{{produit.type_nom}}</th>
+                        <th>{{produit.marque_nom}}</th>
+                        <th><button class="btn btn-outline-warning">Modifier</button></th>
+                        <th><button class="btn btn-outline-danger">supprimer</button></th>
+                    </tr>
                 </tbody>
             </table>
         </mat-tab>
@@ -78,10 +100,17 @@
                         <th>Nom</th>
                         <th>Modifier</th>
                         <th>supprimer</th>
+                        <th>
+                            <mat-icon (click)="OpenAddTypeProduit()">+</mat-icon>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
-
+                    <tr *ngFor="let type of type_produits">
+                        <th>{{type.nom}}</th>
+                        <th><button class="btn btn-outline-warning">Modifier</button></th>
+                        <th><button class="btn btn-outline-danger">supprimer</button></th>
+                    </tr>
                 </tbody>
             </table>
         </mat-tab>

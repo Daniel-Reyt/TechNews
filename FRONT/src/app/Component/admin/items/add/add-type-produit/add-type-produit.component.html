@@ -1,0 +1,22 @@
+<form [formGroup]="AddTypeProduitForm">
+    <div class="card" style="width: 600px;">
+        <div class="card-header row">
+            <div class="col-lg-3">
+                <p>Ajouter un type de produit</p>
+            </div>
+            <div class="col-lg-8">
+
+            </div>
+            <div class="col-lg-1">
+                <mat-icon (click)="closeDialog()">close</mat-icon>
+            </div>
+        </div>
+        <div class="card-body">
+            <input class="form-control" type="text" formControlName="nom" placeholder="merci de renseigner le nom">
+            <br>
+        </div>
+        <div class="card-footer">
+            <button class="col-lg-12 btn btn-outline-success" (click)="AddAndClose()">Send</button>
+        </div>
+    </div>
+</form>

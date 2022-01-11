@@ -1,0 +1,28 @@
+<form [formGroup]="AddProduitForm">
+    <div class="card" style="width: 600px;">
+        <div class="card-header row">
+            <div class="col-lg-3">
+                <p>Ajouter un produit</p>
+            </div>
+            <div class="col-lg-8">
+
+            </div>
+            <div class="col-lg-1">
+                <mat-icon (click)="closeDialog()">close</mat-icon>
+            </div>
+        </div>
+        <div class="card-body">
+            <input class="form-control" type="text" formControlName="nom" placeholder="merci de renseigner le nom">
+            <br>
+            <textarea class="form-control" type="text" rows="5" formControlName="description" placeholder="merci de renseigner la description"></textarea>
+            <br>
+            <input class="form-control" type="number" formControlName="prix" placeholder="merci de renseigner le prix">
+            <select formControlName="marque" class="form-control">
+                <option *ngFor="let marque of SelectMarque" value="{{marque.id_marque}}" >{{marque.nom}}, {{marque.id_marque}}</option>
+            </select>
+        </div>
+        <div class="card-footer">
+            <button class="col-lg-12 btn btn-outline-success" (click)="AddAndClose()">Send</button>
+        </div>
+    </div>
+</form>

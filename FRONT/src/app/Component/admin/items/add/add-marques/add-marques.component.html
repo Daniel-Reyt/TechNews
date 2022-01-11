@@ -1,0 +1,27 @@
+<form [formGroup]="AddMarqueForm">
+    <div class="card" style="width: 600px;">
+        <div class="card-header row">
+            <div class="col-lg-3">
+                <p>Ajouter une Marque</p>
+            </div>
+            <div class="col-lg-8">
+
+            </div>
+            <div class="col-lg-1">
+                <mat-icon (click)="closeDialog()">close</mat-icon>
+            </div>
+        </div>
+        <div class="card-body">
+            <input type='text' required minlength="1" name="nom" class="form-control" formControlName="nom" placeholder="merci de renseigner le nom de la marque">
+            <br>
+            <div [hidden]="this.AddMarqueForm.controls.nom.value.length != 0" class="error-container">
+                <p [hidden]="this.AddMarqueForm.controls.nom.value.length != 0" class="error-message">Le nom doit faire au moins 1 caractère</p>
+            </div>
+            <br>
+            <input type='date' class="form-control" formControlName="date_creation">
+            <div class="card-footer">
+                <button class="col-lg-12 btn btn-outline-success" (click)="CloseAndReturnData()">Send</button>
+            </div>
+        </div>
+    </div>
+</form>
