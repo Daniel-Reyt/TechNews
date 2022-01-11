@@ -24,7 +24,7 @@ async function addUser(req, res, next) {
     }
 }
 
-async function banUser(req, res, next) {
+async function banUser(req, res, next)  {
     try {
         let id_user = req.body.id_user
 
