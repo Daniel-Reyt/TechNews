@@ -7,7 +7,8 @@ pipeline {
         stage('Build') {
             steps {
                 sh """
-                    echo 'Build'
+                    cd FRONT && npm run build 
+                    
                 """
             }
         }
