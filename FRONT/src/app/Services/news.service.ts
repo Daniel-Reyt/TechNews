@@ -9,6 +9,10 @@ export class NewsService {
 
   constructor(private http: HttpClient) { }
 
+  addNews(news: any) {
+    return this.http.post(`${url}news/`, news).pipe();
+  }
+
   getAllNews() {
     return this.http.get(`${url}news/`).pipe();
   }

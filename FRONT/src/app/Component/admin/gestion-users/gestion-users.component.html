@@ -38,6 +38,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <tr *ngFor="let new of news">
+                        <td>{{new.username}}</td>
+                        <td>{{new.message}}</td>
+                        <td>{{new.date_news}} </td>
+                        <td>modifier</td>
+                        <td>supprimer</td>
+                    </tr>
                 </tbody>
             </table>
         </mat-tab>
